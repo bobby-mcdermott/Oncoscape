@@ -8,18 +8,25 @@ RUN echo "deb http://cran.fhcrc.org/bin/linux/ubuntu trusty/" > /etc/apt/sources
 # Add the package verification key
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
 
+
 # Update the system and install packages
-RUN apt-get -y update && apt-get -y install \
+RUN apt-get -y -qq update && apt-get -y -qq install \
 	r-base=3.2.2* \
-	vim \
 	make \
 	m4 \
 	gcc \
 	g++ \
 	libxml2 \
 	libxml2-dev \
-        python-pip && \
-        pip install websocket-client 
+	nodejs \
+	npm \
+	python-pip
+
+# Install required non-apt packages   
+RUN pip install websocket-client && npm install -g jshint
+
+# required to get jshint working 
+RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 # create the sttrweb user and data directory
 RUN useradd -u 7534 -m -d /home/sttrweb -c "sttr web application" sttrweb && \
