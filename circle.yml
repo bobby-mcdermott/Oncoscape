@@ -7,6 +7,7 @@ dependencies:
     - docker version
     - docker build -t oncoscape:$CIRCLE_SHA1 .
 
+
 test:
   override:
     - docker run -d -p 7777:7777 --name oncoscape-$CIRCLE_SHA1 oncoscape:$CIRCLE_SHA1; sleep 10
