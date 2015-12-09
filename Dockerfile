@@ -8,7 +8,6 @@ RUN echo "deb http://cran.fhcrc.org/bin/linux/ubuntu trusty/" > /etc/apt/sources
 # Add the package verification key
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
 
-
 # Update the system and install packages
 RUN apt-get -y -qq update && apt-get -y -qq install \
 	r-base=3.2.2* \
@@ -46,14 +45,15 @@ ADD installRpackages_global.sh /home/sttrweb/Oncoscape/
 ADD installRpackages_local.sh /home/sttrweb/Oncoscape/
 ADD testAllWebsocketOperations.py /home/sttrweb/Oncoscape/
 ADD makefile /home/sttrweb/Oncoscape/
+ADD removeInstalledOncoscapePackages.R /home/sttrweb/Oncoscape/
 
 WORKDIR /home/sttrweb/Oncoscape
 
-RUN make installLocal
+RUN make install
 RUN chown -R sttrweb:sttrweb /home/sttrweb 
 
 EXPOSE 7777
 
-USER sttrweb
+#USER sttrweb
 
-CMD export R_LIBS=/home/sttrweb/rlib && make oncoDocker
+CMD make oncoDocker
