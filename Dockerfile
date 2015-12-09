@@ -49,7 +49,7 @@ ADD makefile /home/sttrweb/Oncoscape/
 
 WORKDIR /home/sttrweb/Oncoscape
 
-RUN make install
+RUN make installLocal
 RUN chown -R sttrweb:sttrweb /home/sttrweb 
 
 EXPOSE 7777
