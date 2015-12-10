@@ -49,8 +49,9 @@ ADD removeInstalledOncoscapePackages.R /home/sttrweb/Oncoscape/
 
 WORKDIR /home/sttrweb/Oncoscape
 
-RUN make install
 RUN chown -R sttrweb:sttrweb /home/sttrweb 
+
+RUN make installLocal
 
 EXPOSE 7777
 
