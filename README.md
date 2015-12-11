@@ -1,4 +1,4 @@
-Master branch testing status: [![Circle CI](https://circleci.com/gh/FredHutch/Oncoscape/tree/master.svg?style=svg)](https://circleci.com/gh/FredHutch/Oncoscape/tree/master)
+[![Circle CI](https://circleci.com/gh/FredHutch/Oncoscape/tree/master.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/FredHutch/Oncoscape/tree/master)
 
 # Oncoscape
 
