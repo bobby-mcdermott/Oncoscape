@@ -1,3 +1,5 @@
+Master branch testing status: [![Circle CI](https://circleci.com/gh/FredHutch/Oncoscape/tree/master.svg?style=svg)](https://circleci.com/gh/FredHutch/Oncoscape/tree/master)
+
 # Oncoscape
 
 A web application to apply/develop analysis tools for Molecular and Clinical data
